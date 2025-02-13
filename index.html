@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <h2>Step-by-Step Search Visualizer</h2>
 
   <!-- Parent Container for Visualizer and Info -->
@@ -24,7 +23,7 @@
       </div>
 
       <!-- Initial Array Display -->
-      <div id="initialArray"></div>
+      <div id="initialArray" class="array-row"></div>
 
       <!-- Steps Container (algorithm steps appear here) -->
       <div class="steps-container" id="stepsContainer"></div>
@@ -32,13 +31,89 @@
 
     <!-- Right Side: Information Section -->
     <div class="info-container">
-      <h3>About Search Algorithms</h3>
-      <p>This visualizer helps you understand different search algorithms step by step.</p>
-      <ul>
-        <li><strong>Linear Search:</strong> Checks elements one by one.</li>
-        <li><strong>Binary Search:</strong> Works on sorted arrays, dividing the search range.</li>
-        <li><strong>Ternary Search:</strong> Similar to binary but divides into three parts.</li>
-      </ul>
+      <div class="code-container">
+        <!-- Linear Search -->
+        <div class="code-editor">
+          <div class="header">
+            <span class="title">Linear Search</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
+              <g>
+                <path stroke-linecap="round" stroke-width="2" d="M6 6L18 18"></path>
+                <path stroke-linecap="round" stroke-width="2" d="M18 6L6 18"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="editor-content">
+            <pre>
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+            </pre>
+          </div>
+        </div>
+      
+        <!-- Binary Search -->
+        <div class="code-editor">
+          <div class="header">
+            <span class="title">Binary Search</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
+              <g>
+                <path stroke-linecap="round" stroke-width="2" d="M6 6L18 18"></path>
+                <path stroke-linecap="round" stroke-width="2" d="M18 6L6 18"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="editor-content">
+            <pre>
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+            </pre>
+          </div>
+        </div>
+      
+        <!-- Ternary Search -->
+        <div class="code-editor">
+          <div class="header">
+            <span class="title">Ternary Search</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
+              <g>
+                <path stroke-linecap="round" stroke-width="2" d="M6 6L18 18"></path>
+                <path stroke-linecap="round" stroke-width="2" d="M18 6L6 18"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="editor-content">
+            <pre>
+def ternary_search(arr, target, left, right):
+    if left > right:
+        return -1
+    mid1 = left + (right - left) // 3
+    mid2 = right - (right - left) // 3
+    if arr[mid1] == target:
+        return mid1
+    if arr[mid2] == target:
+        return mid2
+    if target < arr[mid1]:
+        return ternary_search(arr, target, left, mid1 - 1)
+    elif target > arr[mid2]:
+        return ternary_search(arr, target, mid2 + 1, right)
+    else:
+        return ternary_search(arr, target, mid1 + 1, mid2 - 1)
+            </pre>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -46,3 +121,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

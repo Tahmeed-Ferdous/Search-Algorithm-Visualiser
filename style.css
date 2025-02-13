@@ -1,142 +1,192 @@
-    /* Overall Page Styling */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      h2 {
-        margin-bottom: 0.5em;
-        color: #607D8B; /* Subtle heading color */
-      }
+/* Reset */
+* {
+  box-sizing: border-box;
+}
 
-      .main-container {
-        display: flex;
-        width: 80%;
-        gap: 20px; /* Space between visualizer and info */
-      }
-      
-      .visualizer-container {
-        flex: 2; /* Takes more space */
-        background: #f4f4f4;
-        padding: 20px;
-        border-radius: 8px;
-      }
-      
-      .info-container {
-        flex: 1; /* Takes less space */
-        background: #e0f7fa;
-        padding: 20px;
-        border-radius: 8px;
-      }
-  
-      /* Controls (input + buttons) */
-      .controls {
-        margin-bottom: 1em;
-      }
-      input[type="number"] {
-        padding: 0.5em;
-        width: 120px;
-        margin-right: 0.5em;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        outline: none;
-      }
-      input[type="number"]:focus {
-        border-color: #66afe9;
-        box-shadow: 0 0 3px rgba(102,175,233,0.6);
-      }
-      button {
-        padding: 0.5em 1em;
-        margin: 0 0.3em;
-        cursor: pointer;
-        border: none;
-        border-radius: 4px;
-        background: #2196F3;
-        color: #fff;
-        transition: background 0.3s ease;
-      }
-      button:hover {
-        background: #1976D2;
-      }
-  
-      /* Steps Container & Each Step Row */
-      .steps-container {
-        margin-top: 2em;
-        border-top: 2px solid #ccc;
-        padding-top: 1em;
-      }
-      .step-row {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        padding: 1em;
-        margin-bottom: 1.5em;
-        text-align: center;
-      }
-  
-      /* Array Row & Boxes */
-      .array-row {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 0.5em;
-        flex-wrap: wrap;
-      }
-      .box {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        border: 1px solid #ccc;
-        background: #fafafa;
-        border-radius: 4px;
-        display: inline-block;
-        position: relative;
-        transition: background 0.3s, transform 0.3s;
-      }
-      /* Highlight & Found States */
-      .box.highlight {
-        background: #FFF59D; /* Pastel yellow highlight */
-        transform: scale(1.05);
-      }
-      .box.found {
-        background: #4CAF50; /* Green for found */
-        color: #fff;
-        transform: scale(1.05);
-      }
-  
-      /* Explanation Text */
-      .explanation {
-        font-style: italic;
-        color: #555;
-        margin-top: 0.5em;
-      }
-  
-      /* Tooltip styling on hover */
-      .box[data-title] {
-        cursor: help;
-      }
-      .box[data-title]:hover::after {
-        content: attr(data-title);
-        position: absolute;
-        top: -45px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #333;
-        color: #fff;
-        padding: 4px 8px;
-        border-radius: 4px;
-        white-space: nowrap;
-        font-size: 0.8em;
-        pointer-events: none;
-        z-index: 10;
-        opacity: 0.9;
-      }
-  
-      /* Initial Array Display */
-      #initialArray h4 {
-        margin-bottom: 0.5em;
-        color: #607D8B;
-      }
+/* Overall Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #e3f2fd; /* soft blue background */
+  color: #1e3a5f; /* dark blue text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 1em;
+  color: #1565c0;
+  text-align: center;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  width: 90%;
+  gap: 20px;
+  margin: auto;
+}
+
+/* Visualizer Container */
+.visualizer-container {
+  flex: 2;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Info Container */
+.info-container {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls */
+.controls {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.controls input[type="number"] {
+  padding: 8px;
+  width: 140px;
+  border: 1px solid #90caf9;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.controls button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #2196F3;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 4px 2px;
+}
+
+
+.controls button:hover {
+  background: #1976D2;
+}
+
+/* Initial Array Display */
+#initialArray {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.array-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #90caf9;
+  background: #fafafa;
+  border-radius: 4px;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+  font-weight: bold;
+  color: #1e3a5f;
+}
+
+.box.highlight {
+  background: #bbdefb;
+  transform: scale(1.05);
+}
+
+.box.found {
+  background: #64b5f6;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Steps Container */
+.steps-container {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 2px solid #90caf9;
+}
+
+.step-row {
+  background: #e3f2fd;
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Explanation Text */
+.explanation {
+  font-style: italic;
+  margin-top: 0.5em;
+  color: #555;
+}
+
+/* Code Container */
+.code-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Code Editor Styling */
+.code-editor {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #2196F3;
+  color: #ffffff;
+}
+
+.header .title {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+  cursor: pointer;
+}
+
+.editor-content {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: 'Courier New', monospace;
+  color: #0d47a1;
+  background: #ffffff;
+  white-space: pre-wrap;
+}
+
+.editor-content pre {
+  margin: 0;
+  padding: 0;
+}
