@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/7ba5d7ac-6745-44ba-bdfa-a8b4dfdb04bf)
+
+
 **Search Algorithm Visualiser**
 *Overview*
 The Search Algorithm Visualiser is an intuitive tool designed to provide clear and interactive visualizations of various search algorithms. It's perfect for computer science students, educators, and anyone keen to understand the inner workings of search algorithms. This tool brings abstract concepts to life, making them easier to grasp and analyze.
